@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plant Trees & Fight Climate Change | Green Earth Campaign</title>
+  <meta name="description" content="Join Green Earth's global tree plantation initiative. Plant trees, fight climate change, and help restore forests worldwide. Over 500K trees planted across 30+ countries." />
+  <meta name="keywords" content="tree plantation, climate change, reforestation, environmental campaign, plant trees, green earth, sustainability" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Plant Trees & Fight Climate Change | Green Earth Campaign" />
+  <meta property="og:description" content="Join Green Earth's global tree plantation initiative. Plant trees, fight climate change, and help restore forests worldwide." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <h2 class="logo-title">Green Earth</h2>
+      <nav class="nav-menu" role="navigation" aria-label="Main navigation">
+        <a href="#about" class="nav-item" role="menuitem">About</a>
+        <a href="#gallery" class="nav-item" role="menuitem">Gallery</a>
+        <a href="#plant" class="nav-item" role="menuitem">Plant a Tree</a>
+      </nav>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <a href="#donate" class="cta-button">Plant a Tree</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-section" role="banner" aria-labelledby="hero-title">
+      <img src="assets/hero-leaf1.png" alt="" class="hero-image left" aria-hidden="true" />
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 id="hero-title" class="hero-title">Plant a Tree, Grow a Future</h1>
+          <p class="hero-subtitle">Join our mission to plant 1 million trees and make the Earth greener for future generations.</p>
+          <a href="#get-involved" class="hero-cta" role="button">Get Involved</a>
+        </div>
+      </div>
+      <img src="assets/hero-leaf2.png" alt="" class="hero-image right" aria-hidden="true" />
+    </section>
+
+    <section class="main-content">
+      <div class="container">
+        <h2 class="section-title">Choose Your Trees</h2>
+        <div class="content-wrapper">
+          <aside class="categories" role="complementary">
+            <h3 class="categories-title">Categories</h3>
+            <div class="category-list" role="tablist">
+              <div class="category-item active" data-category="all" role="tab" tabindex="0">All Trees</div>
+              <div class="category-item" data-category="fruit" role="tab" tabindex="0">Fruit Trees</div>
+              <div class="category-item" data-category="flowering" role="tab" tabindex="0">Flowering Trees</div>
+              <div class="category-item" data-category="shade" role="tab" tabindex="0">Shade Trees</div>
+              <div class="category-item" data-category="medicinal" role="tab" tabindex="0">Medicinal Trees</div>
+              <div class="category-item" data-category="timber" role="tab" tabindex="0">Timber Trees</div>
+              <div class="category-item" data-category="evergreen" role="tab" tabindex="0">Evergreen Trees</div>
+              <div class="category-item" data-category="ornamental" role="tab" tabindex="0">Ornamental Plants</div>
+              <div class="category-item" data-category="bamboo" role="tab" tabindex="0">Bamboo</div>
+              <div class="category-item" data-category="climbers" role="tab" tabindex="0">Climbers</div>
+              <div class="category-item" data-category="aquatic" role="tab" tabindex="0">Aquatic Plants</div>
+            </div>
+          </aside>
+          <section class="product-section">
+            <div id="product-grid" class="product-grid"></div>
+          </section>
+          <aside class="cart-widget" role="complementary">
+            <h3 class="cart-title">Your Cart</h3>
+            <div id="cart-items"></div>
+            <div class="cart-total">
+              <span>Total:</span>
+              <span id="cart-total">৳0</span>
+            </div>
+            <div class="cart-divider"></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="container">
+        <h2 class="section-title">About the Campaign</h2>
+        <div class="about-content">
+          <img src="assets/about.png" alt="Green plant growing from soil representing environmental restoration" class="about-image" />
+          <div class="about-text">
+            <p class="about-description">
+              Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since our start, we've planted over 500,000 trees worldwide. By joining our campaign, you help restore forests, create habitats for wildlife, and combat global warming.
+            </p>
+            <div class="about-features">
+              • Restoration of natural habitats<br />
+              • Improvement of air quality<br />
+              • Support for local communities
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="impact-section">
+      <div class="container">
+        <h2 class="section-title">Our Impact</h2>
+        <div class="impact-stats">
+          <div class="stat-card">
+            <div class="stat-number">500K+</div>
+            <div class="stat-label">Trees Planted</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">120+</div>
+            <div class="stat-label">Communities Involved</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">30+</div>
+            <div class="stat-label">Countries Reached</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="donation-section" id="donate">
+      <div class="donation-content">
+        <h2 class="donation-title">Plant a Tree Today</h2>
+        <form class="donation-form" onsubmit="handleDonation(event)">
+          <div class="form-group">
+            <input type="text" id="donor-name" class="form-input" placeholder="Your Name" required />
+          </div>
+          <div class="form-group">
+            <input type="email" id="donor-email" class="form-input" placeholder="Your Email Address" required />
+          </div>
+          <div class="form-group">
+            <select id="tree-count" class="form-select" required>
+              <option value="">Number of Trees</option>
+              <option value="1">1 Tree - ৳500</option>
+              <option value="5">5 Trees - ৳2500</option>
+              <option value="10">10 Trees - ৳5000</option>
+              <option value="25">25 Trees - ৳12500</option>
+            </select>
+          </div>
+          <button type="submit" class="donate-button">Donate Now</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer-text">© 2025 Green Earth. All Rights Reserved.</p>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>
