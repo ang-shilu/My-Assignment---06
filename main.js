@@ -13,10 +13,9 @@ const plants = [ { "id": 1, "image": "https://i.ibb.co/cSQdg7tf/mango-min.jpg", 
   const totalPriceEl = document.getElementById("cart-total");
   let cart = [];
 
-  // Pagination variables
   let currentPage = 1;
   const productsPerPage = 9;
-  let filteredProducts = plants; // keeps track of currently displayed products
+  let filteredProducts = plants;
 
   function renderProducts(productsToShow = filteredProducts, page = 1) {
     productGrid.innerHTML = "";
@@ -61,7 +60,6 @@ const plants = [ { "id": 1, "image": "https://i.ibb.co/cSQdg7tf/mango-min.jpg", 
   }
 
   function renderPagination(productsToShow, page) {
-    // Remove old pagination
     const oldPagination = document.querySelector(".pagination");
     if (oldPagination) oldPagination.remove();
 
@@ -135,7 +133,7 @@ const plants = [ { "id": 1, "image": "https://i.ibb.co/cSQdg7tf/mango-min.jpg", 
     document.querySelectorAll(".category-item").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
 
-    currentPage = 1; // reset to first page
+    currentPage = 1;
     if (category === "All") {
       filteredProducts = plants;
     } else {
@@ -168,3 +166,4 @@ const plants = [ { "id": 1, "image": "https://i.ibb.co/cSQdg7tf/mango-min.jpg", 
   renderCategories();
   renderProducts();
 });
+
