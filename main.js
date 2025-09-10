@@ -268,7 +268,7 @@ const cartItemsContainer = document.getElementById("cart-items");
 const totalPriceEl = document.getElementById("cart-total");
 let cart = [];
 
-function renderProducts(productsToShow = plants.slice(0, 9)) {
+function renderProducts(productsToShow = plants) {
   productGrid.innerHTML = "";
   spinner.style.display = "block";
 
@@ -331,11 +331,12 @@ function renderCart() {
 function renderCategories() {
   categoryListEl.innerHTML = "";
   categories.forEach(category => {
-    const li = document.createElement("li");
-    li.classList.add("category-item");
-    li.textContent = category;
-    li.onclick = (e) => filterByCategory(category, e.currentTarget);
-    categoryListEl.appendChild(li);
+    const div = document.createElement("div");
+    div.classList.add("category-item");
+    if (category === "All") div.classList.add("active");
+    div.textContent = category;
+    div.onclick = () => filterByCategory(category, div);
+    categoryListEl.appendChild(div);
   });
 }
 
@@ -345,8 +346,12 @@ function filterByCategory(category, btn) {
   document.querySelectorAll(".category-item").forEach(b => b.classList.remove("active"));
   btn.classList.add("active");
 
-  const filtered = plants.filter(p => p.category === category);
-  renderProducts(filtered);
+  if (category === "All") {
+    renderProducts(plants);
+  } else {
+    const filtered = plants.filter(p => p.category === category);
+    renderProducts(filtered);
+  }
 }
 
 function openModal(id) {
@@ -370,6 +375,10 @@ window.onclick = function(event) {
     closeModal();
   }
 };
+
+renderCategories();
+renderProducts();
+
 
 
 
