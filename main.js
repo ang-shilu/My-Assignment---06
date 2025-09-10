@@ -244,24 +244,10 @@ const plants =
     }
   ];
 
-const categoryMap = {
-  fruit: "Fruit Tree",
-  flowering: "Flowering Tree",
-  shade: "Shade Tree",
-  medicinal: "Medicinal Tree",
-  timber: "Timber Tree",
-  evergreen: "Evergreen Tree",
-  ornamental: "Ornamental Plant",
-  bamboo: "Bamboo",
-  climbers: "Climber",
-  aquatic: "Aquatic Plant"
-};
-
-const categories = [...new Set(plants.map(p => p.category))];
+const categories = ["All", ...new Set(plants.map(p => p.category))];
 const categoryListEl = document.querySelector(".category-list");
 const modal = document.getElementById("modal");
 const modalBody = document.getElementById("modal-body");
-const categoryButtons = document.querySelectorAll(".category-item");
 const spinner = document.getElementById("spinner");
 const productGrid = document.getElementById("product-grid");
 const cartItemsContainer = document.getElementById("cart-items");
@@ -340,8 +326,6 @@ function renderCategories() {
   });
 }
 
-renderProducts();
-
 function filterByCategory(category, btn) {
   document.querySelectorAll(".category-item").forEach(b => b.classList.remove("active"));
   btn.classList.add("active");
@@ -378,8 +362,3 @@ window.onclick = function(event) {
 
 renderCategories();
 renderProducts();
-
-
-
-
-
