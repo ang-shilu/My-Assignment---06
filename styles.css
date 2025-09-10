@@ -234,12 +234,6 @@ input, select {
   order: -1;
 }
 
-.placeholder {
-  background: #f0f0f0;
-  border-radius: 8px;
-  min-height: 300px;
-}
-
 .categories {
   background: transparent;
   border-radius: 16px;
@@ -369,6 +363,12 @@ input, select {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  min-height: 300px;
+}
+
+.placeholder {
+  background: #f0f0f0;
+  border-radius: 8px;
   min-height: 300px;
 }
 
@@ -910,6 +910,7 @@ input, select {
   }
 
 }
+
 
 
 
