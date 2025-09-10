@@ -349,6 +349,7 @@ input, select {
 .product-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, auto);
   gap: 24px;
   padding: 20px;
 }
@@ -728,11 +729,6 @@ input, select {
     font-size: 28px;
   }
   
-  .product-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-  
   .impact-stats {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -803,10 +799,6 @@ input, select {
     order: 0;
     width: 280px;
     flex-shrink: 0;
-  }
-  
-  .product-grid {
-    grid-template-columns: repeat(3, 1fr);
   }
   
   .about-content {
@@ -910,3 +902,4 @@ input, select {
   }
 
 }
+
