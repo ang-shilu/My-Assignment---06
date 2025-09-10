@@ -352,6 +352,12 @@ input, select {
   gap: 10px;
 }
 
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: all 0.2s ease;
+}
+
 .product-image {
   width: 100%;
   height: 150px;
@@ -861,4 +867,5 @@ input, select {
   }
 
 }
+
 
