@@ -17,52 +17,52 @@ document.addEventListener('DOMContentLoaded', () => {
   const productsPerPage = 9;
   let filteredProducts = plants;
 
-  function renderProducts(productsToShow = filteredProducts, page = 1) {
-    productGrid.innerHTML = "";
-    spinner.style.display = "block";
+function renderProducts(productsToShow = filteredProducts, page = 1) {
+  productGrid.innerHTML = "";
+  spinner.style.display = "block";
 
-    setTimeout(() => {
-      const start = (page - 1) * productsPerPage;
-      const end = start + productsPerPage;
-      let pageProducts = productsToShow.slice(start, end);
+  setTimeout(() => {
+    const start = (page - 1) * productsPerPage;
+    const end = start + productsPerPage;
+    let pageProducts = productsToShow.slice(start, end);
 
-      while (pageProducts.length < 9) {
-        pageProducts.push({ empty: true });
+    // PAD to 9 items per page
+    while (pageProducts.length < productsPerPage) {
+      pageProducts.push({ empty: true });
+    }
+
+    pageProducts.forEach(plant => {
+      const productDiv = document.createElement("div");
+      productDiv.classList.add("product-card");
+
+      if (plant.empty) {
+        productDiv.style.visibility = "hidden"; // keeps grid structure
+      } else {
+        productDiv.innerHTML = `
+          <div class="product-image">
+            <img src="${plant.image}" alt="${plant.name}">
+          </div>
+          <div class="product-info">
+            <div class="product-name">${plant.name}</div>
+            <div class="product-description">${plant.description}</div>
+            <div class="product-meta">
+              <span class="product-tag">${plant.category}</span>
+              <span class="product-price">${currency}${plant.price}</span>
+            </div>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        `;
+        productDiv.querySelector(".product-name").addEventListener("click", () => openModal(plant.id));
+        productDiv.querySelector(".add-to-cart").addEventListener("click", () => addToCart(plant.id));
       }
 
-      pageProducts.forEach(plant => {
-        const productDiv = document.createElement("div");
-        productDiv.classList.add("product-card");
+      productGrid.appendChild(productDiv);
+    });
 
-        if (plant.empty) {
-          productDiv.style.visibility = "hidden";
-        } else {
-          productDiv.innerHTML = `
-            <div class="product-image">
-              <img src="${plant.image}" alt="${plant.name}">
-            </div>
-            <div class="product-info">
-              <div class="product-name">${plant.name}</div>
-              <div class="product-description">${plant.description}</div>
-              <div class="product-meta">
-                <span class="product-tag">${plant.category}</span>
-                <span class="product-price">${currency}${plant.price}</span>
-              </div>
-              <button class="add-to-cart">Add to Cart</button>
-            </div>
-          `;
-
-          productDiv.querySelector(".product-name").addEventListener("click", () => openModal(plant.id));
-          productDiv.querySelector(".add-to-cart").addEventListener("click", () => addToCart(plant.id));
-        }
-
-        productGrid.appendChild(productDiv);
-      });
-
-      spinner.style.display = "none";
-      renderPagination(productsToShow, page);
-    }, 300);
-  }
+    spinner.style.display = "none";
+    renderPagination(productsToShow, page);
+  }, 300);
+}
 
   function renderPagination(productsToShow, page) {
     const oldPagination = document.querySelector(".pagination");
@@ -165,3 +165,4 @@ document.addEventListener('DOMContentLoaded', () => {
   renderCategories();
   renderProducts();
 });
+
