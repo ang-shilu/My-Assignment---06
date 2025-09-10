@@ -26,7 +26,6 @@ function renderProducts(productsToShow = filteredProducts, page = 1) {
     const end = start + productsPerPage;
     let pageProducts = productsToShow.slice(start, end);
 
-    // PAD to 9 items per page
     while (pageProducts.length < productsPerPage) {
       pageProducts.push({ empty: true });
     }
@@ -36,7 +35,7 @@ function renderProducts(productsToShow = filteredProducts, page = 1) {
       productDiv.classList.add("product-card");
 
       if (plant.empty) {
-        productDiv.style.visibility = "hidden"; // keeps grid structure
+        productDiv.classList.add("placeholder");
       } else {
         productDiv.innerHTML = `
           <div class="product-image">
@@ -165,4 +164,5 @@ function renderProducts(productsToShow = filteredProducts, page = 1) {
   renderCategories();
   renderProducts();
 });
+
 
