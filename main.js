@@ -13,7 +13,6 @@ const plants = [ { "id": 1, "image": "https://i.ibb.co/cSQdg7tf/mango-min.jpg", 
   const totalPriceEl = document.getElementById("cart-total");
   let cart = [];
 
-  // -------------------- PRODUCTS --------------------
   function renderProducts(productsToShow = plants) {
     productGrid.innerHTML = "";
     spinner.style.display = "block";
@@ -38,7 +37,6 @@ const plants = [ { "id": 1, "image": "https://i.ibb.co/cSQdg7tf/mango-min.jpg", 
           </div>
         `;
 
-        // Attach event listeners instead of inline onclick
         const nameDiv = productDiv.querySelector(".product-name");
         nameDiv.addEventListener("click", () => openModal(plant.id));
 
@@ -51,7 +49,6 @@ const plants = [ { "id": 1, "image": "https://i.ibb.co/cSQdg7tf/mango-min.jpg", 
     }, 500);
   }
 
-  // -------------------- CART --------------------
   function addToCart(id) {
     const product = plants.find(p => p.id === id);
     cart.push(product);
@@ -85,7 +82,6 @@ const plants = [ { "id": 1, "image": "https://i.ibb.co/cSQdg7tf/mango-min.jpg", 
     totalPriceEl.textContent = `${currency}${total}`;
   }
 
-  // -------------------- CATEGORIES --------------------
   function renderCategories() {
     categoryListEl.innerHTML = "";
     categories.forEach(category => {
@@ -111,7 +107,6 @@ const plants = [ { "id": 1, "image": "https://i.ibb.co/cSQdg7tf/mango-min.jpg", 
     }
   }
 
-  // -------------------- MODAL --------------------
   function openModal(id) {
     const plant = plants.find(p => p.id === id);
     modalBody.innerHTML = `
@@ -132,7 +127,7 @@ const plants = [ { "id": 1, "image": "https://i.ibb.co/cSQdg7tf/mango-min.jpg", 
     if (event.target === modal) closeModal();
   });
 
-  // -------------------- INIT --------------------
   renderCategories();
   renderProducts();
 });
+
