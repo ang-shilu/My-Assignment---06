@@ -371,34 +371,6 @@ window.onclick = function(event) {
   }
 };
 
-function filterCategory(category) {
-  categoryButtons.forEach(btn => btn.classList.remove("active"));
-  event.currentTarget.classList.add("active"); // highlight active
-
-  const filtered = plants.filter(p => p.category === category);
-  renderFilteredProducts(filtered);
-}
-
-function renderFilteredProducts(items) {
-  productGrid.innerHTML = "";
-  items.forEach(plant => {
-    const productDiv = document.createElement("div");
-    productDiv.classList.add("product-card");
-    productDiv.innerHTML = `
-      <div class="product-image"><img src="${plant.image}" alt="${plant.name}"></div>
-      <div class="product-info">
-        <div class="product-name" onclick="openModal(${plant.id})">${plant.name}</div>
-        <div class="product-description">${plant.description}</div>
-        <div class="product-meta">
-          <span class="product-tag">${plant.category}</span>
-          <span class="product-price">${currency}${plant.price}</span>
-        </div>
-        <button class="add-to-cart" onclick="addToCart(${plant.id})">Add to Cart</button>
-      </div>
-    `;
-    productGrid.appendChild(productDiv);
-  });
-}
 
 
 
