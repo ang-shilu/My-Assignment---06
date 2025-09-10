@@ -1,10 +1,4 @@
 const currency = "৳";
-const categories = [...new Set(plants.map(p => p.category))];
-const categoryListEl = document.querySelector(".category-list");
-const modal = document.getElementById("modal");
-const modalBody = document.getElementById("modal-body");
-const categoryButtons = document.querySelectorAll(".category-item");
-const spinner = document.getElementById("spinner");
 
 const plants =
 [
@@ -250,6 +244,13 @@ const plants =
     }
   ];
 
+const categories = [...new Set(plants.map(p => p.category))];
+const categoryListEl = document.querySelector(".category-list");
+const modal = document.getElementById("modal");
+const modalBody = document.getElementById("modal-body");
+const categoryButtons = document.querySelectorAll(".category-item");
+const spinner = document.getElementById("spinner");
+
 let cart = [];
 const productGrid = document.getElementById("product-grid");
 const cartItemsContainer = document.getElementById("cart-items");
@@ -386,4 +387,5 @@ function renderFilteredProducts(items) {
     productGrid.appendChild(productDiv);
   });
 }
+
 
