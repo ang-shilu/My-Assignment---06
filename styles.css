@@ -362,6 +362,7 @@ input, select {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  min-height: 300px;
 }
 
 .product-card:hover {
@@ -902,4 +903,5 @@ input, select {
   }
 
 }
+
 
